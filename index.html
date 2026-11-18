@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Captura de Datos</title>
+</head>
+<body>
+
+  <h2>Captura de Datos</h2>
+
+  <form id="formulario" action="TU_URL_DE_APPS_SCRIPT_AQUI" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="VALOR DEL DOLAR">VALOR DEL DOLAR:</label><br>
+    <input type="text" id="VALOR DEL DOLAR" name="VALOR DEL DOLAR" required><br><br>
+
+    <label for="DIA">DIA:</label><br>
+    <input type="number" id="DIA" name="DIA" required min="1" max="120"><br><br>
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
